@@ -13,9 +13,7 @@ Future<void> main() async {
 
   // Always build the semantics tree on the web: exposes headings, links and
   // labels to screen readers and gives crawlers real DOM nodes.
-  if (kIsWeb) {
-    SemanticsBinding.instance.ensureSemantics();
-  }
+
 
   final localeController = await LocaleController.create();
   runApp(AmeerixApp(localeController: localeController));

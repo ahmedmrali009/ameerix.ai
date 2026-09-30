@@ -161,7 +161,15 @@ class _PinnedStorySectionState extends State<PinnedStorySection> {
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
     final compact = size.width < 960;
-    final factor = compact ? (widget.compactHeightFactor ?? widget.heightFactor) : widget.heightFactor;
+    // Mobile browsers have a much shorter usable viewport and their address /
+    // navigation bars change height while scrolling. The old compact factors
+    // (often 1.6–1.8) left less than one viewport of actual scroll travel,
+    // which compressed the whole cinematic timeline so later animation beats
+    // could pass before they were clearly visible. Give compact scenes enough
+    // scroll runway to show every stage while keeping desktop choreography
+    // unchanged.
+    final requestedFactor = compact ? (widget.compactHeightFactor ?? widget.heightFactor) : widget.heightFactor;
+    final factor = compact ? math.max(requestedFactor, 2.25) : requestedFactor;
     _viewport = size.height;
     _total = size.height * factor;
     _scheduleMeasure();

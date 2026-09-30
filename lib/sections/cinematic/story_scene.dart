@@ -286,7 +286,16 @@ class _StoryVisual extends StatelessWidget {
           }
 
           final illus = Motion.seg(p, .49, .52) * (1 - Motion.seg(p, .86, .9));
-          return Stack(
+          // Stages 02–04 need to sit higher on laptop-height viewports.
+          // Lift the complete visual composition (core, factor pills, market
+          // links and painter) as one unit, then smoothly return to the normal
+          // centre before the later stages.
+          final earlyLift = Motion.easeInOut(Motion.seg(p, .10, .16)) *
+              (1 - Motion.easeInOut(Motion.seg(p, .50, .56)));
+          final liftY = h * (mob ? .10 : .18) * earlyLift;
+          return Transform.translate(
+            offset: Offset(0, -liftY),
+            child: Stack(
             clipBehavior: Clip.none,
             children: [
               Positioned.fill(
@@ -317,6 +326,7 @@ class _StoryVisual extends StatelessWidget {
               if (illus > 0)
                 PositionedDirectional(top: 0, end: 0, child: Opacity(opacity: illus, child: SceneTag(l.labelIllustrative))),
             ],
+            ),
           );
         },
       );

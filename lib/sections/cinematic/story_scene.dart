@@ -201,7 +201,7 @@ class _StoryVisual extends StatelessWidget {
           final s7 = Motion.easeInOut(Motion.seg(p, .75, .82));
           final mx = X(mob ? .5 : .66);
           final gap = mob ? 46.0 : 56.0;
-          final top = mob ? h * .2 : cy - 2.5 * gap;
+          final top = mob ? h * .14 : cy - 3.35 * gap;
           final endFade = 1 - Motion.seg(p, .88, .93);
           for (var i = 0; i < 6; i++) {
             final rank = ranked.indexOf(i);

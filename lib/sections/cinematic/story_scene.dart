@@ -67,13 +67,13 @@ class SpainGccStory extends StatelessWidget {
                     );
                     final vis = ExcludeSemantics(child: _StoryVisual(progress: progress, clock: clock, motion: m));
                     if (m.compact) {
-                      return Column(children: [Expanded(child: vis), const SizedBox(height: 12), caption]);
+                      return Column(children: [Expanded(child: SizedBox.expand(child: vis)), const SizedBox(height: 12), caption]);
                     }
                     return Row(
                       children: [
                         Expanded(flex: 4, child: Align(alignment: AlignmentDirectional.centerStart, child: caption)),
                         const SizedBox(width: 40),
-                        Expanded(flex: 8, child: vis),
+                        Expanded(flex: 8, child: SizedBox.expand(child: vis)),
                       ],
                     );
                   },

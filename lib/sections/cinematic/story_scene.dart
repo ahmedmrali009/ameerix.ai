@@ -42,14 +42,18 @@ class SpainGccStory extends StatelessWidget {
       semanticLabel: '${l.storyEyebrow}. ${l.storyTitle} ${stages.map((s) => s.$1).join('. ')}',
       builder: (context, progress, visible, size) {
         final m = ResponsiveMotionController.of(context);
+        final pad = stagePadding(context);
+        final usableHeight = math.max(0.0, size.height - pad.top - pad.bottom);
         return ColoredBox(
           color: AppColors.deepSpace,
           child: Padding(
-            padding: stagePadding(context),
+            padding: pad,
             child: Center(
               child: ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 1360),
-                child: AmbientClock(
+                child: SizedBox(
+                  height: usableHeight,
+                  child: AmbientClock(
                   visible: visible,
                   builder: (context, clock) {
                     final caption = AnimatedBuilder(
@@ -73,6 +77,7 @@ class SpainGccStory extends StatelessWidget {
                       ],
                     );
                   },
+                ),
                 ),
               ),
             ),

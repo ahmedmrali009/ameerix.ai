@@ -290,9 +290,11 @@ class _StoryVisual extends StatelessWidget {
           // Lift the complete visual composition (core, factor pills, market
           // links and painter) as one unit, then smoothly return to the normal
           // centre before the later stages.
-          final earlyLift = Motion.easeInOut(Motion.seg(p, .10, .16)) *
-              (1 - Motion.easeInOut(Motion.seg(p, .50, .56)));
-          final liftY = h * (mob ? .10 : .18) * earlyLift;
+          final earlyLift = mob
+              ? 0.0
+              : Motion.easeInOut(Motion.seg(p, .10, .16)) *
+                  (1 - Motion.easeInOut(Motion.seg(p, .86, .90)));
+          final liftY = h * .18 * earlyLift;
           return Transform.translate(
             offset: Offset(0, -liftY),
             child: Stack(

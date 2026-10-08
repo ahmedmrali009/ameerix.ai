@@ -192,7 +192,7 @@ class _AppWindow extends StatelessWidget {
               child: const Icon(Icons.change_history, size: 11, color: Colors.white),
             ),
             const SizedBox(width: 8),
-            Text('AMEERIX',
+            Text('AMHILO',
                 textDirection: TextDirection.ltr,
                 style: TextStyle(fontFamily: AppTypography.latinFamily, color: Colors.white, letterSpacing: 2.4, fontWeight: FontWeight.w700, fontSize: 12)),
             const SizedBox(width: 14),

@@ -1,0 +1,13 @@
+{
+  "hosting": {
+    "site": "amhilo",
+    "public": "build/web",
+    "ignore": ["**/.*", "**/node_modules/**", "**/*.map"],
+    "rewrites": [{"source": "**", "destination": "/index.html"}],
+    "headers": [
+      {"source": "**", "headers": [{"key": "Cache-Control", "value": "no-cache, max-age=0, must-revalidate"}]},
+      {"source": "/", "headers": [{"key": "Clear-Site-Data", "value": "\"cache\""}]},
+      {"source": "/index.html", "headers": [{"key": "Clear-Site-Data", "value": "\"cache\""}]}
+    ]
+  }
+}

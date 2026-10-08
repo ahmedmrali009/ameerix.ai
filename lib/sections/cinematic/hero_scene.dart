@@ -16,7 +16,7 @@ import '../../widgets/visuals/intelligence_core.dart';
 
 /// Cinematic opening: "From market complexity to commercial clarity." beside
 /// a procedural dotted earth. Spain emits blue data signals that travel into
-/// the floating Ameerix intelligence core; as the visitor scrolls, the camera
+/// the floating Amhilo intelligence core; as the visitor scrolls, the camera
 /// moves in, violet processing energy rises, paths illuminate the six GCC
 /// markets (UAE and Saudi Arabia first, per the rollout strategy) and finally
 /// two restrained gold opportunity paths reach the UAE and Saudi Arabia.
@@ -448,7 +448,7 @@ class _HeroPainter extends CustomPainter {
       }
     }
 
-    // The Ameerix core floating over the corridor.
+    // The Amhilo core floating over the corridor.
     final (pc, _, _) = v.project((_core.$1 * _alt, _core.$2 * _alt, _core.$3 * _alt));
     final cs = radius * (mob ? .1 : .085);
     paintIntelligenceCore(canvas, pc, cs, tt, energy: .35 + .65 * proc, gold: gold * .6);

@@ -14,7 +14,7 @@ class AppConfig {
   /// Replace with the production domain before launch.
   static const String siteUrl = String.fromEnvironment(
     'SITE_URL',
-    defaultValue: 'https://www.ameerix.com',
+    defaultValue: 'https://amhilo.com',
   );
 
   /// HTTPS endpoint that receives contact / demo requests as JSON (POST).
@@ -26,5 +26,5 @@ class AppConfig {
   static const double maxContentWidth = 1200;
 
   /// Key used to persist the visitor's language choice.
-  static const String localeStorageKey = 'ameerix.locale';
+  static const String localeStorageKey = 'amhilo.locale';
 }

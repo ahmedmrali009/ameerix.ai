@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Opening AMHILO</title>
+  <style>body{background:#030712;color:white;font:18px system-ui;display:grid;place-items:center;min-height:100vh;margin:0}a{color:#a5b4fc}</style>
+</head>
+<body>
+  <p id="status">Opening AMHILO…</p>
+  <script src="amhilo_recovery.js"></script>
+  <script>
+    retireAmhiloCache().then(() => {
+      location.replace('/?amhilo=' + Date.now());
+    }).catch(() => {
+      document.getElementById('status').innerHTML = 'Please <a href="/?amhilo=' + Date.now() + '">open AMHILO</a>.';
+    });
+  </script>
+</body>
+</html>

@@ -147,6 +147,22 @@
       if (s) { s.style.opacity = '0'; setTimeout(function () { s.remove(); }, 400); }
     });
   </script>
-  <script src="flutter_bootstrap.js?v=AMHILO_BUILD_ID" async></script>
+  <script src="amhilo_recovery.js?v=AMHILO_BUILD_ID"></script>
+  <script>
+    (async function () {
+      try {
+        const removed = await retireAmhiloCache();
+        if (removed && navigator.serviceWorker.controller) {
+          location.replace('refresh.html');
+          return;
+        }
+      } catch (error) {
+        console.warn('AMHILO cache cleanup unavailable', error);
+      }
+      const bootstrap = document.createElement('script');
+      bootstrap.src = 'flutter_bootstrap.js?v=AMHILO_BUILD_ID';
+      document.body.appendChild(bootstrap);
+    })();
+  </script>
 </body>
 </html>
